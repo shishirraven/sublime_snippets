@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+<select name="{1:table_name}_id" id="" class="form-control" required>
+                    <?php 
+                      $query_{1:table_name} = "select * from {1:table_name}";
+                      $query_rs = mysqli_query($con,$query_{1:table_name}) or die(mysqli_error($con));
+                      while(${1:table_name}_row = mysqli_fetch_array($query_rs))
+                      {
+                      ?>
+                            <option value="<?php echo ${1:table_name}_row['id']; ?>">
+                              <?php echo ${1:table_name}_row['{1:table_name}_name'] ?>
+                            </option>
+                      <?php
+                      } // End of While. 
+                      ?>
+</select>
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>selectFromDatabase</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
